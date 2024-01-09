@@ -41,8 +41,6 @@ try:
    streamlit.dataframe(back_from_function)
     
 
-#dont run anything past here while we troubleshoot
-streamlit.stop()  
 streamlit.header("The fruit load list contains:")
 #snowflake-related functions
 def get_fruit_load_list():
@@ -58,5 +56,6 @@ if streamlit.button('Get Fruit Load List')
 add_my_fruit = streamlit.text_input('What fruit would you like information about?','Jackfruit')
 streamlit.write('Thanks for adding ', add_my_fruit)
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
-
+#dont run anything past here while we troubleshoot
+streamlit.stop()  
 
