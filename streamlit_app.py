@@ -50,14 +50,14 @@ streamlit.dataframe(fruits_to_show)
     #streamlit.dataframe(fruityvice_normalized)
 #except URLError as e:
  # streamlit.error()
-#dont run anything past here while we troubleshoot
-streamlit.stop()
+
 #create the repeatable code block(called a function)
 def get_fruityvice_date(this_fruit_choice):
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
   fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
   return fruityvice_normalized
-
+#dont run anything past here while we troubleshoot
+streamlit.stop()
 #New Section to display fruity api response
 streamlit.header('Fruityvice Fruit Advice!')
 try:
@@ -79,7 +79,6 @@ streamlit.dataframe(my_data_rows)
 
 add_my_fruit = streamlit.text_input('What fruit would you like information about?','Jackfruit')
 streamlit.write('Thanks for adding ', add_my_fruit)
-
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 
 
