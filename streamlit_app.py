@@ -50,7 +50,8 @@ streamlit.dataframe(fruits_to_show)
     #streamlit.dataframe(fruityvice_normalized)
 #except URLError as e:
  # streamlit.error()
-
+#dont run anything past here while we troubleshoot
+streamlit.stop()
 #create the repeatable code block(called a function)
 def get_fruityvice_date(this_fruit_choice):
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
@@ -68,8 +69,6 @@ try:
    streamlit.dataframe(back_from_function)
     
   
-#dont run anything past here while we troubleshoot
-streamlit.stop()
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
